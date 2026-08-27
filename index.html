@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>แปลงหน่วยปริมาตร — ลิตร มิลลิลิตร แกลลอน ถ้วย</title>
+<title>แปลงหน่วยปริมาตร | ลิตร มิลลิลิตร แกลลอน ถ้วย</title>
 <meta name="description" content="แปลงหน่วยปริมาตรได้ทันที ลิตร มิลลิลิตร แกลลอน ออนซ์ ถ้วย ช้อนโต๊ะ ช้อนชา กรอกช่องไหนก็ได้">
 <link rel="canonical" href="https://kamnuan.net/kamnuanprimat/">
-<meta property="og:title" content="แปลงหน่วยปริมาตร — ลิตร มิลลิลิตร แกลลอน ถ้วย">
+<meta property="og:title" content="แปลงหน่วยปริมาตร | ลิตร มิลลิลิตร แกลลอน ถ้วย">
 <meta property="og:description" content="แปลงหน่วยปริมาตร ลิตร มิลลิลิตร แกลลอน ออนซ์ ถ้วย ช้อนโต๊ะ ช้อนชา กรอกช่องไหนก็ได้">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kamnuan.net/kamnuanprimat/">
@@ -32,6 +32,15 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .logo-en{font-size:9px;font-weight:600;color:#96938C;letter-spacing:2px;}
 .back-btn{display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 10px;border:1px solid var(--b0);border-radius:8px;background:#FFFFFF;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:500;color:#52504C;text-decoration:none;white-space:nowrap;}
 .back-btn svg{width:13px;height:13px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.menu-wrap{position:relative;flex-shrink:0;}
+.menu-btn{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--b0);border-radius:8px;background:#FFFFFF;cursor:pointer;padding:0;transition:transform .1s ease;}
+.menu-btn:active{transform:scale(.94);}
+.menu-btn svg{width:16px;height:16px;stroke:#52504C;stroke-width:2;stroke-linecap:round;}
+.menu-panel{position:absolute;top:44px;right:0;min-width:190px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r);box-shadow:0 8px 24px rgba(0,0,0,0.14);padding:6px;opacity:0;transform:scale(.96) translateY(-4px);transform-origin:top right;pointer-events:none;transition:opacity .15s ease,transform .15s ease;z-index:200;}
+.menu-panel.open{opacity:1;transform:scale(1) translateY(0);pointer-events:auto;}
+.menu-panel a{display:block;padding:11px 12px;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;color:#18181A;text-decoration:none;}
+.menu-panel a:active{background:#EFEFEC;}
+@media(hover:hover){.menu-panel a:hover{background:#EFEFEC;}}
 .page{width:100%;max-width:600px;margin:0 auto;padding:20px 16px 80px;}
 .page-hd{margin-bottom:20px;}
 .page-hd h1{font-family:'Noto Serif Thai',serif;font-size:clamp(20px,5vw,26px);font-weight:700;color:#18181A;line-height:1.2;}
@@ -39,18 +48,24 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .card{background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px;width:100%;}
 .card-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .card-head-title{font-size:14px;font-weight:600;color:#18181A;}
-.clear-btn{font-size:12px;color:#96938C;background:none;border:none;cursor:pointer;font-family:'Sarabun',sans-serif;}
+.clear-btn{font-size:12px;font-weight:600;color:#52504C;background:#FFFFFF;border:1px solid var(--b0);border-radius:8px;padding:6px 10px;cursor:pointer;font-family:'Sarabun',sans-serif;transition:transform .1s ease;}
+.clear-btn:active{transform:scale(.96);background:#F7F7F5;}
 .card-body{padding:16px;}
-.unit-divider{padding:8px 0 6px;font-size:11px;font-weight:700;color:#96938C;letter-spacing:.06em;text-transform:uppercase;}
-.unit-divider:not(:first-child){margin-top:6px;border-top:1px solid var(--b0);padding-top:14px;}
+.unit-group-label{font-size:12px;font-weight:700;color:#52504C;padding:14px 0 6px;}
+.unit-group-label:first-child{padding-top:0;}
+.unit-group-label:not(:first-child){margin-top:6px;border-top:1px solid var(--b0);padding-top:14px;}
 .unit-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--b0);}
 .unit-row:last-child{border-bottom:none;}
+.unit-row.primary .unit-lbl{font-weight:700;}
 .unit-lbl{font-size:13px;font-weight:600;color:#18181A;width:110px;flex-shrink:0;line-height:1.3;}
-.unit-sub{font-size:11px;color:#96938C;font-weight:400;display:block;}
+.unit-sub{font-size:11px;color:#96938C;display:block;}
 .unit-input{flex:1;min-width:0;height:44px;padding:0 12px;border:1px solid var(--b0);border-radius:var(--r);background:#FFFFFF;font-family:'Sarabun',sans-serif;font-size:16px;color:#18181A;outline:none;}
 .unit-input:focus{border-color:#18181A;}
-.info-table-wrap{margin-top:12px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;}
-.info-table-title{padding:10px 14px;font-size:12px;font-weight:600;color:#96938C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
+@keyframes unitFlash{from{background:#EFEFEC;}to{background:#FFFFFF;}}
+.unit-input.flash{animation:unitFlash .6s ease;}
+@media(prefers-reduced-motion:reduce){.unit-input.flash{animation:none;}}
+.info-table-wrap{margin-top:16px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;}
+.info-table-title{padding:10px 14px;font-size:12px;font-weight:700;color:#52504C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .info-table{width:100%;border-collapse:collapse;font-size:13px;}
 .info-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:600;color:#96938C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .info-table td{padding:9px 12px;color:#52504C;border-bottom:1px solid var(--b0);}
@@ -65,12 +80,15 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .faq-a.open{max-height:300px;padding:14px;}
 .faq-a strong{color:#18181A;}
 .related-wrap{margin-top:28px;padding-top:24px;border-top:1px solid var(--b0);}
-.related-title{font-size:11px;font-weight:600;color:#96938C;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.related-card{display:flex;align-items:center;gap:10px;padding:12px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r);text-decoration:none;}
+.related-title{font-size:14px;font-weight:600;color:#18181A;margin-bottom:10px;}
+.related-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;}
+.related-card{display:flex;align-items:center;gap:10px;padding:12px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r);text-decoration:none;transition:transform .1s ease,border-color .15s ease;}
+.related-card:active{transform:scale(.97);}
+@media(hover:hover){.related-card:hover{border-color:var(--b1);}}
 .related-ico{width:32px;height:32px;border-radius:8px;background:#18181A;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .related-ico svg{width:15px;height:15px;stroke:#FFFFFF;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-.related-name{font-size:13px;font-weight:500;color:#18181A;}
+.related-name{font-size:13px;font-weight:500;color:#18181A;flex:1;min-width:0;}
+.related-arrow{width:13px;height:13px;stroke:#96938C;stroke-width:2;fill:none;flex-shrink:0;}
 footer{border-top:1px solid var(--b0);padding:20px 16px;text-align:center;font-size:12px;color:#96938C;line-height:2;}
 footer a{color:#96938C;text-decoration:none;}
 </style>
@@ -93,6 +111,17 @@ footer a{color:#96938C;text-decoration:none;}
     <div class="logo-t"><span class="logo-th">คำนวณ</span><span class="logo-en">KAMNUAN</span></div>
   </a>
   <a class="back-btn" href="/"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>เครื่องมือทั้งหมด</a>
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-label="เมนู" onclick="toggleMenu(event)" type="button">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="menu-panel" id="menuPanel" role="menu">
+      <a href="/about.html" role="menuitem">เกี่ยวกับเรา</a>
+      <a href="/privacy.html" role="menuitem">นโยบายความเป็นส่วนตัว</a>
+      <a href="/terms.html" role="menuitem">เงื่อนไข</a>
+      <a href="/contact.html" role="menuitem">ติดต่อ</a>
+    </div>
+  </div>
 </header>
 
 <div class="page">
@@ -107,15 +136,15 @@ footer a{color:#96938C;text-decoration:none;}
       <button class="clear-btn" onclick="clearAll()" type="button">ล้างทั้งหมด</button>
     </div>
     <div class="card-body">
-      <div class="unit-divider">เมตริก</div>
-      <div class="unit-row"><span class="unit-lbl">มิลลิลิตร<span class="unit-sub">ml</span></span><input class="unit-input" id="f-ml" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('ml')"></div>
-      <div class="unit-row"><span class="unit-lbl">ลิตร<span class="unit-sub">L</span></span><input class="unit-input" id="f-l" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('l')"></div>
+      <div class="unit-group-label">เมตริก</div>
+      <div class="unit-row primary"><span class="unit-lbl">มิลลิลิตร<span class="unit-sub">ml</span></span><input class="unit-input" id="f-ml" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('ml')"></div>
+      <div class="unit-row primary"><span class="unit-lbl">ลิตร<span class="unit-sub">L</span></span><input class="unit-input" id="f-l" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('l')"></div>
       <div class="unit-row"><span class="unit-lbl">ลูกบาศก์เมตร<span class="unit-sub">m³</span></span><input class="unit-input" id="f-m3" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('m3')"></div>
-      <div class="unit-divider">ใช้ทำอาหาร</div>
+      <div class="unit-group-label">ใช้ทำอาหาร</div>
       <div class="unit-row"><span class="unit-lbl">ช้อนชา<span class="unit-sub">tsp</span></span><input class="unit-input" id="f-tsp" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('tsp')"></div>
       <div class="unit-row"><span class="unit-lbl">ช้อนโต๊ะ<span class="unit-sub">tbsp</span></span><input class="unit-input" id="f-tbsp" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('tbsp')"></div>
       <div class="unit-row"><span class="unit-lbl">ถ้วย<span class="unit-sub">cup</span></span><input class="unit-input" id="f-cup" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('cup')"></div>
-      <div class="unit-divider">อเมริกัน</div>
+      <div class="unit-group-label">หน่วยอเมริกันอื่นๆ</div>
       <div class="unit-row"><span class="unit-lbl">ออนซ์ของเหลว<span class="unit-sub">fl oz</span></span><input class="unit-input" id="f-floz" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('floz')"></div>
       <div class="unit-row"><span class="unit-lbl">ไพน์ต<span class="unit-sub">pint</span></span><input class="unit-input" id="f-pt" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('pt')"></div>
       <div class="unit-row"><span class="unit-lbl">แกลลอน<span class="unit-sub">gallon</span></span><input class="unit-input" id="f-gal" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('gal')"></div>
@@ -168,20 +197,52 @@ footer a{color:#96938C;text-decoration:none;}
   <div class="related-wrap">
     <div class="related-title">เครื่องมือที่เกี่ยวข้อง</div>
     <div class="related-grid">
-      <a class="related-card" href="/kamnuannamnak/"><div class="related-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div><span class="related-name">แปลงหน่วยน้ำหนัก</span></a>
-      <a class="related-card" href="/kamnuankhwamyao/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M2 12h20M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4"/></svg></div><span class="related-name">แปลงหน่วยความยาว</span></a>
-      <a class="related-card" href="/kamnuanunhaphum/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><span class="related-name">แปลงหน่วยอุณหภูมิ</span></a>
-      <a class="related-card" href="/kamnuankhwamrew/"><div class="related-ico"><svg viewBox="0 0 24 24"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div><span class="related-name">แปลงหน่วยความเร็ว</span></a>
+      <a class="related-card" href="/kamnuannamnak/"><div class="related-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div><span class="related-name">แปลงหน่วยน้ำหนัก</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="related-card" href="/kamnuankhwamyao/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M2 12h20M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4"/></svg></div><span class="related-name">แปลงหน่วยความยาว</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="related-card" href="/kamnuanunhaphum/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><span class="related-name">แปลงหน่วยอุณหภูมิ</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="related-card" href="/kamnuankhwamrew/"><div class="related-ico"><svg viewBox="0 0 24 24"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></div><span class="related-name">แปลงหน่วยความเร็ว</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
     </div>
   </div>
 </div>
 
 <footer role="contentinfo">
-  <p>© 2569 คำนวณ · <a href="/">หน้าหลัก</a> · <a href="/about.html">เกี่ยวกับเรา</a> · <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a> · <a href="/terms.html">เงื่อนไข</a> · <a href="/contact.html">ติดต่อ</a></p>
+  <p>© 2569 คำนวณ</p>
 </footer>
 
 <script>
 function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!e));btn.nextElementSibling.classList.toggle('open',!e);}
+
+/* เมนู hamburger */
+function toggleMenu(e){
+  e.stopPropagation();
+  const panel=document.getElementById('menuPanel');
+  const btn=document.getElementById('menuBtn');
+  const open=panel.classList.toggle('open');
+  btn.setAttribute('aria-expanded',String(open));
+}
+document.addEventListener('click',function(e){
+  const panel=document.getElementById('menuPanel');
+  const btn=document.getElementById('menuBtn');
+  if(panel.classList.contains('open') && !panel.contains(e.target) && e.target!==btn){
+    panel.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    const panel=document.getElementById('menuPanel');
+    if(panel.classList.contains('open')){
+      panel.classList.remove('open');
+      document.getElementById('menuBtn').setAttribute('aria-expanded','false');
+    }
+  }
+});
+
+function flashField(el){
+  el.classList.remove('flash');
+  void el.offsetWidth;
+  el.classList.add('flash');
+}
 
 const TO_BASE={ml:0.001,l:1,m3:1000,tsp:0.00492892,tbsp:0.0147868,cup:0.236588,floz:0.0295735,pt:0.473176,gal:3.78541};
 const UNITS=Object.keys(TO_BASE);
@@ -203,7 +264,9 @@ function convert(src){
       const base=val*TO_BASE[src];
       UNITS.filter(u=>u!==src).forEach(u=>{
         document.getElementById('f-'+u).value=fmt(base/TO_BASE[u]);
+        flashField(document.getElementById('f-'+u));
       });
+      gtag('event','convert_used',{tool_name:'kamnuanprimat'});
     }
   } finally {
     updating=false;
